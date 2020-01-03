@@ -2,6 +2,8 @@
 <%@ page import="model.Professor" %>
 <%@ page import="model.User" %>
 <%@ page import="model.Grades" %>
+<jsp:include page="ProfessorRegisterServlet" />
+
 <%--
   Created by IntelliJ IDEA.
   User: andrea
@@ -21,6 +23,7 @@
 <body>
 
 HELLO WECOLME IN REGISTER
+<form action="ProfessorRegisterServlet" method="get">
 
 <title>Register</title>
 <%
@@ -50,11 +53,8 @@ HELLO WECOLME IN REGISTER
     }
 }
 %>
-
-<form action="ProfessorRegisterServlet" method="post">
-    <input type ="hidden" name="cmd" value="reg">
-    <input type="submit" value="register">
 </form>
+
 
 </body>
 </html>

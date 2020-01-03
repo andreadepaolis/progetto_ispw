@@ -5,6 +5,7 @@ import model.Grades;
 import model.Professor;
 import model.User;
 import persistence.ProfessorDao;
+import persistence.UserDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,16 +45,17 @@ public class ProfessorRegister implements Register {
     }
 
     @Override
-    public List<Grades> getGrades(int professorid,String classe) {
-
+    public List<Grades> getMyGrades(int id) {
         List<Grades> result;
-        result = ProfessorDao.getGradesForClass(professorid,classe);
+        result = UserDao.getMyGrades(id);
         return result;
 
     }
     @Override
-    public List<Assenze> getAssenze(String c) {
-        return null;
+    public List<Assenze> getAssenze(int id) {
+        List<Assenze> result;
+        result = UserDao.getMyAssenze(id);
+        return result;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Assenze;
 import model.Grades;
 import model.User;
 import query.UserQuery;
@@ -15,7 +16,7 @@ import java.util.List;
 
 public abstract class UserDao {
 
-    public static User validate(String matricola, String password) throws SQLException {
+    public static User validate(int matricola, String password) throws SQLException {
 
 
             DataBase db = DataBase.getInstance();
@@ -138,4 +139,48 @@ public abstract class UserDao {
 
         return allGrades;
      }
+
+    public static List<Assenze> getMyAssenze(int id) {
+
+        Statement stmt = null;
+        Connection con = null;
+        List<Assenze> allAssenze = new ArrayList<>();
+
+        try {
+
+            DataBase db =  DataBase.getInstance();
+            con = db.getConnection();
+
+            stmt = con.createStatement();
+            ResultSet rs = UserQuery.getAssenze(stmt, id);
+
+
+            if (rs == null || !rs.first()) {
+                return null;
+
+            }
+
+            // riposizionamento del cursore
+            rs.first();
+            do{
+
+                String tipo = rs.getString("tipo");
+                int checkbit = rs.getInt("checkbit");
+                Date data = rs.getDate("data");
+
+                Assenze a = new Assenze(id,tipo,data,checkbit);
+
+                allAssenze.add(a);
+
+            }while(rs.next());
+
+            // STEP 5.1: Clean-up dell'ambiente
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // STEP 5.2: Clean-up dell'ambiente
+
+        return allAssenze;
     }
+}

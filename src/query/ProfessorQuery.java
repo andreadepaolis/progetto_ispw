@@ -1,5 +1,6 @@
 package query;
 
+import model.Assenze;
 import model.Homework;
 
 import java.sql.ResultSet;
@@ -9,8 +10,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ProfessorQuery {
-    public static ResultSet login(Statement stmt, String matricola, String password) {
-        String sql = "SELECT * FROM professor where matricola = matricola AND password = password";
+    public static ResultSet login(Statement stmt, int matricola, String password) {
+        String sql = String.format("SELECT * FROM professor WHERE matricola ='%d' AND password = '%s'",matricola,password);
         try {
             return stmt.executeQuery(sql);
         } catch (SQLException e) {
@@ -78,5 +79,19 @@ public class ProfessorQuery {
             System.out.println("rip");
             return null;
         }
+    }
+
+    public static int saveNewAssenza(Statement stmt, Assenze a) {
+        int ms = a.getMatricolaStudente();
+        String type = a.getTipo();
+        Date data = a.getData();
+        String sql = String.format("INSERT INTO assenze(matricolaStudente,data,tipo,checkbit) VALUES('%d','%tD','%s','%d')",ms,data,type,1);
+
+        try {
+            return stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

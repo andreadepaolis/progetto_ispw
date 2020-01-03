@@ -20,9 +20,7 @@
 <h3> Login successful</h3>
 
 <br>
-<a href="homeProfessor.jsp">Checkout Page</a>
-<form action="LogoutServlet" method="post">
-    <input type="submit" value="Logout" >
+
 </form>
 </body>
 

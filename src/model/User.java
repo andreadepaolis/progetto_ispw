@@ -10,6 +10,7 @@ public class User {
     private String lastname;
     private String classe;
     private List<Grades> grades;
+    private List <Assenze> assenze;
 
     public User(String name,String lastname,int matricola,String classe){
         this.name = name;
@@ -40,5 +41,12 @@ public class User {
 
     public String getLastname() {
         return lastname;
+    }
+
+    public void setAssenze(List<Assenze> assenze) {
+        this.assenze = assenze;
+    }
+    public List<Assenze> getAssenze(){
+        return assenze;
     }
 }

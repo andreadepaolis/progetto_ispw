@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.List;
 public class HomeProfessorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/homeProfessor.jsp");
 
         try{
             HttpSession session = request.getSession(false);
@@ -37,28 +39,43 @@ public class HomeProfessorServlet extends HttpServlet {
                 Professor p = (Professor) session.getAttribute("professor");
                 String classe = request.getParameter("classe");
                 String materia = request.getParameter("materia");
-                String data = (request.getParameter("data"));
+                String data = request.getParameter("data");
                 String description = request.getParameter("descrizione");
-                Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+                if(data == null  || data.equals("")){
+                    request.setAttribute("title","Error");
+                    request.setAttribute("message", "Check parameter");
+                    rd.forward(request, response);
+                    return;
+                }
+    try {
+        Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+
                 int result = ProfessorDao.newHomework(p.getMatricola(), classe, materia, date1, description);
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/homeProfessor.jsp");
 
                 if (result > 0) {
-                    System.out.println("hello");
                     request.setAttribute("title", "ok");
                     request.setAttribute("message", "new homework correctly saved");
+                } else {
+                    request.setAttribute("title","Error");
+                    request.setAttribute("message", "Try Again");
+
                 }
                 rd.forward(request, response);
+
+    } catch (ParseException e){
+        e.printStackTrace();
+        request.setAttribute("title","Error");
+        request.setAttribute("message", "invalid Date");
+        rd.forward(request, response);
+
+    }
             } else if(cmd.equals("reg")) {
                 response.sendRedirect("professorRegister.jsp");
-
             }
+
 
         } catch (Exception e){
             e.printStackTrace();
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/homeProfessor.jsp");
-            PrintWriter out = response.getWriter();
-            out.println(e);
             rd.include(request, response);
 
         }

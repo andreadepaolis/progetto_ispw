@@ -11,14 +11,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-</head>
+<head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <link rel="stylesheet" href="css/toast.css" type="text/css">
+
+
     <title>Home</title>
 
 </head>
-<body>
+<body class="roma">
 <%
+
     //allow access only if session exists
     if(session.getAttribute("professor") == null){
         response.sendRedirect("login.html");
@@ -34,11 +39,14 @@
 <%
 
 %>
-
+<form action="HomeProfessorServlet" method="post">
+    <input type ="hidden" name="cmd" value="reg">
+    <input type="submit" value="register">
+</form>
 
 <form action="HomeProfessorServlet" method="post">
 
-    Materia <input type="text" name="materia">
+    Materia <input type="text" class="text" name="materia">
     <br>
     Description<input type="text" style = "width: 400px; height: 150px" name="descrizione">
     <br>
@@ -48,25 +56,44 @@
     <input type ="hidden" name="cmd" value="newhw">
     <input type="submit" value="save">
 </form>
+<!-- The actual snackbar -->
+
+<div id="snackbar">${title}<br>${message}</div>
+<script type="text/javascript">
+    function myFunction(value) {
+        var x = document.getElementById("snackbar");
+        console.log(value);
+        if(value == "1"){
+            x.className = "succ";
+            setTimeout(function(){ x.className = x.className.replace("succ", ""); }, 3000);
+        } else {
+            x.className = "error";
+            setTimeout(function () {
+                x.className = x.className.replace("succ", "");
+            }, 3000);
+        }
+
+    }
+</script>
 
 
     <%
         if(request.getAttribute("title")!= null ){
-            String title = request.getParameter("title");
-            String message = request.getParameter("message");
-
-
-
+            String title = request.getAttribute("title").toString();
+            if(title.equals("ok")) {
     %>
-                Ok ${message}
+<script type="text/javascript">myFunction("1");</script>
 <%
-        }
-    %>
+        } else {
+%>
+<script type="text/javascript">myFunction("2");</script>
 
-<form action="HomeProfessorServlet" method="post">
-    <input type ="hidden" name="cmd" value="reg">
-    <input type="submit" value="register">
-</form>
+<%
+            }
+    }
+%>
+
+
 
 </body>
 </html>

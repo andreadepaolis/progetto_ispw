@@ -5,9 +5,6 @@ import model.Assenze;
 import model.Grades;
 import model.Professor;
 import model.User;
-import persistence.ProfessorDao;
-import persistence.UserDao;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,11 +19,11 @@ import java.util.List;
 @WebServlet("/ProfessorRegisterServlet")
 public class ProfessorRegisterServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("HEELLO GET");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
             HttpSession session = request.getSession(false);
@@ -41,35 +38,30 @@ public class ProfessorRegisterServlet extends HttpServlet {
                 List<User> allUserForClass = register.getAllUserForClass("3B");
                 register.setUsers(allUserForClass);
                 List<Grades> grades = new ArrayList<>();
+                List<Assenze> assenze = new ArrayList<>();
 
                 for(User u: allUserForClass){
-                    List<Grades> temp = UserDao.getMyGrades(u.getMatricola());
+                    List<Grades> temp = register.getMyGrades(u.getMatricola());
+                    List<Assenze> temp2 = register.getAssenze(u.getMatricola());
                     if(temp != null) {
-                        for (Grades s : temp) {
-                            grades.add(s);
-                        }
+                        grades.addAll(temp);
                         u.setGrades(grades);
 
                     }
+                    if(temp2 != null){
+                        assenze.addAll(temp2);
+                        u.setAssenze(assenze);
+                    }
                 }
-
-           //     List<Assenze> assenze = register.getAssenze("3B");
-              //  register.setAssenze(assenze);
-
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/professorRegister.jsp");
                 request.setAttribute("register",register);
-
-                rd.forward(request, response);
             }
 
         } catch (Exception e){
            e.printStackTrace();
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
+            rd.forward(request, response);
 
         }
-
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/professorRegister.jsp");
-        rd.forward(request, response);
-
 
     }
 }

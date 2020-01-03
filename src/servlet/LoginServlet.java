@@ -31,7 +31,8 @@ public class LoginServlet extends HttpServlet {
         String cmd = request.getParameter("type");
         if(cmd.equals("user")){
         try {
-            User user = UserDao.validate(matricola, password);
+            int matricolanum = Integer.parseInt(matricola);
+            User user = UserDao.validate(matricolanum, password);
             if (user != null) {
                 user.setGrades(UserDao.getMyGrades(user.getMatricola()));
                 HttpSession session = request.getSession();
@@ -46,13 +47,14 @@ public class LoginServlet extends HttpServlet {
                 rd.include(request, response);
             }
         } catch (SQLException se){
-            System.out.println(se);
+            se.printStackTrace();
         }
 
     } else if (cmd.equals("professor")) {
             Professor p = null;
             try {
-                p = ProfessorDao.validate(matricola,password);
+                int matricolanum = Integer.parseInt(matricola);
+                p = ProfessorDao.validate(matricolanum,password);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

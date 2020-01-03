@@ -1,9 +1,6 @@
 package persistence;
 
-import model.Grades;
-import model.Homework;
-import model.Professor;
-import model.User;
+import model.*;
 import query.ProfessorQuery;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,7 +13,7 @@ import java.util.List;
 public class ProfessorDao {
 
 
-    public static Professor validate(String matricola, String password) throws SQLException {
+    public static Professor validate(int matricola, String password) throws SQLException {
 
 
         Connection con = DataBase.getInstance().getConnection();
@@ -177,5 +174,27 @@ public class ProfessorDao {
         return list;
 
     }
+
+
+      public static int newAssenza(Assenze a){
+
+        Connection con = DataBase.getInstance().getConnection();
+        int result = 0;
+
+        try {
+            Statement stmt = con.createStatement();
+
+            result = ProfessorQuery.saveNewAssenza(stmt,a);
+
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+
+
+
 
 }

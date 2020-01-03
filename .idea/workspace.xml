@@ -9,7 +9,59 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9bfaf43f-1a4b-4216-8524-3434b0225c33" name="Default Changelist" comment="" />
+    <list default="true" id="9bfaf43f-1a4b-4216-8524-3434b0225c33" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css" afterDir="true" />
+      <change afterPath="$PROJECT_DIR$/web/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/toast.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/controller/ProfessorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/controller/ProfessorRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/controller/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/controller/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/model/Assenze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/model/Assenze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/persistence/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/persistence/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/persistence/ProfessorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/persistence/ProfessorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/persistence/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/persistence/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/query/ProfessorQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/query/ProfessorQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/query/UserQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/query/UserQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/servlet/HomeProfessorServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/servlet/HomeProfessorServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/servlet/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/servlet/ProfessorRegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/WEB-INF/classes/servlet/ProfessorRegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/homeProfessor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/homeProfessor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/professorRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project4_war_exploded/professorRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/controller/ProfessorRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/controller/ProfessorRegister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/controller/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/controller/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/model/Assenze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/model/Assenze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/persistence/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/persistence/DataBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/persistence/ProfessorDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/persistence/ProfessorDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/persistence/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/persistence/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/query/ProfessorQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/query/ProfessorQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/query/UserQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/query/UserQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/servlet/HomeProfessorServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/servlet/HomeProfessorServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/servlet/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/project4/servlet/ProfessorRegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project4/servlet/ProfessorRegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/project4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ProfessorRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ProfessorRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Assenze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Assenze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistence/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/ProfessorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistence/ProfessorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/persistence/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/query/ProfessorQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/query/ProfessorQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/query/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/query/UserQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/HomeProfessorServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/HomeProfessorServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servlet/ProfessorRegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/ProfessorRegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/homeProfessor.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/homeProfessor.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/professorRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/professorRegister.jsp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +78,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -44,6 +97,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JSPExample" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -141,8 +196,27 @@
       </method>
     </configuration>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -159,7 +233,11 @@
       <workItem from="1577970343906" duration="6875000" />
       <workItem from="1577985772095" duration="13065000" />
       <workItem from="1578007096993" duration="3484000" />
-      <workItem from="1578038863859" duration="1046000" />
+      <workItem from="1578038863859" duration="1319000" />
+      <workItem from="1578048433190" duration="79000" />
+      <workItem from="1578057775846" duration="2684000" />
+      <workItem from="1578065606492" duration="9282000" />
+      <workItem from="1578079662863" duration="4112000" />
     </task>
     <servers />
   </component>

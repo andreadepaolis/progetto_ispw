@@ -9,13 +9,15 @@ import java.util.List;
 public interface Register {
 
 
-    List<Grades> getGrades(int i,String s);
+    List<Grades> getMyGrades(int id);
 
-    List<Assenze> getAssenze(String c);
+    List<Assenze> getAssenze(int id);
 
     User getUser();
 
-     List<User>getAllUserForClass(String c);
+    List<User>getAllUserForClass(String c);
+
+  //  List<Grades> sortBy()
 
 //many sorting algoritms for user
 }
