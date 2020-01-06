@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class UserQuery {
 
     public static ResultSet login(Statement stmt, int matricola, String password) throws SQLException  {
-        String sql = String.format("SELECT * FROM professor where  matricola ='%d' AND password = '%s",matricola,password);
+        String sql = String.format("SELECT * FROM users where matricola ='%d' AND password = '%s'",matricola,password);
         try {
             return stmt.executeQuery(sql);
         } catch (SQLException e) {
@@ -28,7 +28,6 @@ public class UserQuery {
     }
 
     public static ResultSet getGrades(Statement stmt, int id) {
-        System.out.println(id);
         String sql = String.format("SELECT * FROM grades where matricolaStudente =%d",id);
         try {
             return stmt.executeQuery(sql);

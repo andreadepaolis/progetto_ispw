@@ -7,6 +7,7 @@ public class Professor {
          private String name;
          private String lastname;
          private int matricola;
+         private List <String> materia;
          private List<String> classi;
          private List<User> studentList;
          private List<Homework> homework;
@@ -16,6 +17,14 @@ public class Professor {
              this.lastname = lastname;
              this.matricola = matricola;
          }
+         public Professor(String name, String lastname,int matricola,List<String> materia,List<String> classi){
+                this.name = name;
+                this.lastname = lastname;
+                this.matricola = matricola;
+                this.materia = materia;
+                this.classi = classi;
+            }
+
 
     public String getName() {
         return name;
@@ -49,13 +58,6 @@ public class Professor {
         this.classi = classi;
     }
 
-    public List<User> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<User> studentList) {
-        this.studentList = studentList;
-    }
 
     public List<Homework> getHomework() {
         return homework;
@@ -63,5 +65,13 @@ public class Professor {
 
     public void setHomework(List<Homework> homework) {
         this.homework = homework;
+    }
+
+    public List<String> getMateria() {
+        return materia;
+    }
+
+    public void setMateria(List<String> materia) {
+        this.materia = materia;
     }
 }

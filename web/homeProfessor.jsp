@@ -16,12 +16,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
     <link rel="stylesheet" href="css/login.css" type="text/css">
     <link rel="stylesheet" href="css/toast.css" type="text/css">
+    <link rel="stylesheet" href="css/navbar.css" type="text/css">
+
 
 
     <title>Home</title>
 
 </head>
 <body class="roma">
+<ul>
+    <li><a href="homeProfessor.jsp">Home</a></li>
+    <li><a href="professorRegister.jsp">Register</a></li>
+    <li><a >
+        <form action="LogoutServlet" method="post">
+            <input type="submit" value="Logout" >
+        </form></a></li>
+</ul>
+
 <%
 
     //allow access only if session exists
@@ -33,9 +44,6 @@
 %>
 <h3>Hi <%=name %>, do the checkout.</h3>
 <br>
-<form action="LogoutServlet" method="post">
-    <input type="submit" value="Logout" >
-</form>
 <%
 
 %>

@@ -49,4 +49,6 @@ public class User {
     public List<Assenze> getAssenze(){
         return assenze;
     }
+
+
 }

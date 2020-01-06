@@ -8,6 +8,7 @@ import persistence.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -60,6 +61,11 @@ public class LoginServlet extends HttpServlet {
             }
             if (p != null) {
                 HttpSession session = request.getSession();
+                List<String> a = ProfessorDao.getClassi(p.getMatricola());
+                System.out.println(a.get(0));
+                p.setClassi(a);
+                List<String> materie = ProfessorDao.getMaterie(p.getMatricola());
+                p.setMateria(materie);
                 session.setAttribute("professor", p);
                 session.setMaxInactiveInterval(30 * 60);
                 response.sendRedirect("homeProfessor.jsp");

@@ -1,16 +1,21 @@
 package controller;
 
+import factory.month;
 import model.Assenze;
 import model.Grades;
 import model.Professor;
 import model.User;
 import persistence.ProfessorDao;
 import persistence.UserDao;
+import utils.registerUtils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
 
-public class ProfessorRegister implements Register {
+public class ProfessorRegister extends registerUtils implements Register {
 
     private List<Grades> grades;
     private List<Assenze> assenze;
@@ -69,5 +74,63 @@ public class ProfessorRegister implements Register {
         users = ProfessorDao.getClasse(c);
         return users;
     }
+    @Override
+    public List<Grades> getMyGrades(int id, month m,String materia){
+        List<Grades> result = new ArrayList<>();
+        List<Grades> temp = new ArrayList<>();
+        Calendar start = Calendar.getInstance();
+        start.set(2020,m.getIndex()-1,0);
+        Calendar end = Calendar.getInstance();
+        end.set(2020,m.getIndex()+1,m.getDay());
+        temp  = UserDao.getMyGrades(id);
+        if(temp != null) {
+            for (Grades g : temp) {
+                if (g.getData().before(end.getTime()) && start.getTime().before(g.getData())&& g.getMateria().equals(materia)){
+                    result.add(g);
+                }
 
+            }
+            return result;
+        }
+        return null;
+    }
+    @Override
+    public List<Assenze> getAssenze(int id, month m){
+        List<Assenze> result = new ArrayList<>();
+        List<Assenze> temp = new ArrayList<>();
+        Calendar start = Calendar.getInstance();
+        start.set(2020,m.getIndex()-1,0);
+        Calendar end = Calendar.getInstance();
+        end.set(2020,m.getIndex()+1,m.getDay());
+        temp  = UserDao.getMyAssenze(id);
+        if(temp != null) {
+            for (Assenze a : temp) {
+                if (a.getData().before(end.getTime()) && start.getTime().before(a.getData()))
+                    result.add(a);
+            }
+            return result;
+        }
+        return null;
+    }
+
+    public int newGrades(int ms,String name, String materia,int voto, String tipo,int professorid,String professor,Date data){
+        Grades g = new Grades(ms,materia,voto,tipo,professorid,professor,data);
+        return ProfessorDao.saveGrades(g);
+    }
+
+    public float getMedia(int matricola,String materia) {
+
+         float media = 0;
+         List<Grades> voti = ProfessorDao.getMedia(matricola,materia);
+         int count = 0;
+         if(voti == null){
+             return 0;
+         }
+         for(Grades g : voti){
+             count++;
+             media += g.getVoto();
+         }
+         return Math.round((media/count)*10)/10;
+
+    }
 }
