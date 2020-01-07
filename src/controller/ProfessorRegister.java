@@ -118,9 +118,9 @@ public class ProfessorRegister extends registerUtils implements Register {
         return ProfessorDao.saveGrades(g);
     }
 
-    public float getMedia(int matricola,String materia) {
+    public double getMedia(int matricola,String materia) {
 
-         float media = 0;
+         double media = 0;
          List<Grades> voti = ProfessorDao.getMedia(matricola,materia);
          int count = 0;
          if(voti == null){
@@ -130,7 +130,7 @@ public class ProfessorRegister extends registerUtils implements Register {
              count++;
              media += g.getVoto();
          }
-         return Math.round((media/count)*10)/10;
+         return Math.round((media*10/count))/10.0;
 
     }
 }

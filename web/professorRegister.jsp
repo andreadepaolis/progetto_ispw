@@ -23,6 +23,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
     <title>Register</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css">
     <link rel="stylesheet" href="css/register.css" type="text/css">
     <link rel="stylesheet" href="css/navbar.css" type="text/css">
     <link rel="stylesheet" href="css/toast.css" type="text/css">
@@ -30,6 +31,11 @@
 
 </head>
 <body>
+
+<div id="pop1">
+    Helllo
+</div>
+
 
 <ul>
     <li><a href="homeProfessor.jsp">Home</a></li>
@@ -109,6 +115,11 @@ HELLO WECOLME IN REGISTER
     <input type='submit' name='submit'/>
 </select>
 </form>
+
+
+<div id="pop1">
+    Helllo
+</div>
 
 
 
@@ -194,6 +205,7 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
                                     result = String.valueOf(g.getVoto());
                             }
                        }
+                  }
                   if(u.getAssenze()!=null){
                       for(Assenze a: u.getAssenze()){
                       Calendar cal = Calendar.getInstance();
@@ -204,7 +216,7 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
                             }
                        }
                     }
-                  }
+
                   %>
             <td><%=result%> </td>
             <%
@@ -260,12 +272,6 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
 %>
 
 
-<div id = "pop1">
-        Helllo
-</div>
-
-
-
 <script>
 
     var table = document.getElementById("tg-yquL3");
@@ -279,11 +285,10 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
     }
 
     function tableText(tableCell) {
-       var x = document.getElementById("pop1");
-        x.className = "succ";
-        console.log("Hello");
-        setTimeout(function(){ x.className = x.className.replace("succ", ""); }, 3000);
-
+       var y = document.getElementById("pop1");
+        y.classList.add("succ1");
+        setTimeout(function(){y.classList.remove("succ1"); }, 5000);
+    console.log(y);
     }
 
 
