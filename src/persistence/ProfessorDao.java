@@ -306,5 +306,39 @@ public class ProfessorDao {
         }
         return list;
     }
+
+    public static List<ScheduleInfo> getSchedule(int professorid) {
+
+        List<ScheduleInfo> list = new ArrayList<>();
+        Statement stmt = null;
+        Connection con = null;
+        try {
+
+            DataBase db = DataBase.getInstance();
+            con = db.getConnection();
+
+            stmt = con.createStatement();
+            ResultSet rs = ProfessorQuery.getScheduleForProfessor(stmt,professorid);
+
+            if (!rs.first()) {
+                return null;
+            }
+
+            // riposizionamento del cursore
+            rs.first();
+
+            do {
+                ScheduleInfo si = new ScheduleInfo(rs.getInt("day"),rs.getInt("hours"),rs.getString("materia"),rs.getString("class"));
+                list.add(si);
+
+            } while (rs.next());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
 }
 

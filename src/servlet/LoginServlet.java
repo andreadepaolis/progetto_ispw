@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 
                 response.sendRedirect("home.jsp");
             } else {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
                 PrintWriter out = response.getWriter();
                 out.println("<font>Either user name or password is wrong</font>");
                 rd.include(request, response);
@@ -70,14 +70,14 @@ public class LoginServlet extends HttpServlet {
                 session.setMaxInactiveInterval(30 * 60);
                 response.sendRedirect("homeProfessor.jsp");
             } else {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
                 PrintWriter out = response.getWriter();
                 out.println("<font>Either user name or password is wrong</font>");
                 rd.include(request, response);
              }
             } else {
 
-            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
             rd.include(request, response);
 
         }

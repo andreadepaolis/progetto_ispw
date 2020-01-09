@@ -149,4 +149,14 @@ public class ProfessorQuery {
             return null;
         }
     }
+
+    public static ResultSet getScheduleForProfessor(Statement stmt, int professorid) {
+        String sql = String.format("SELECT * FROM scheduleinfo WHERE matricolaProfessore = '%s'",professorid);
+        try {
+            return stmt.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

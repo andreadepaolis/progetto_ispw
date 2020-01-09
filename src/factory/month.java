@@ -7,13 +7,15 @@ public class month {
    private int day;
    private int index;
    private String name;
+   private int year;
 
 
-    public month(int index, String name,int day){
+    public month(int index, String name,int day,int year){
 
         this.day = day;
         this.index = index;
         this.name = name;
+        this.year = year;
 
     }
 
@@ -21,8 +23,8 @@ public class month {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getYear() {
+        return year;
     }
 
     public int getDay() {

@@ -3,7 +3,6 @@ package controller;
 import factory.month;
 import model.Assenze;
 import model.Grades;
-import model.Professor;
 import model.User;
 import persistence.ProfessorDao;
 import persistence.UserDao;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class ProfessorRegister extends registerUtils implements Register {
 
@@ -79,9 +77,9 @@ public class ProfessorRegister extends registerUtils implements Register {
         List<Grades> result = new ArrayList<>();
         List<Grades> temp = new ArrayList<>();
         Calendar start = Calendar.getInstance();
-        start.set(2020,m.getIndex()-1,0);
+        start.set(m.getYear(),m.getIndex()-1,0);
         Calendar end = Calendar.getInstance();
-        end.set(2020,m.getIndex()+1,m.getDay());
+        end.set(m.getYear(),m.getIndex()-1,m.getDay());
         temp  = UserDao.getMyGrades(id);
         if(temp != null) {
             for (Grades g : temp) {
@@ -99,9 +97,9 @@ public class ProfessorRegister extends registerUtils implements Register {
         List<Assenze> result = new ArrayList<>();
         List<Assenze> temp = new ArrayList<>();
         Calendar start = Calendar.getInstance();
-        start.set(2020,m.getIndex()-1,0);
+        start.set(m.getYear(),m.getIndex()-1,0);
         Calendar end = Calendar.getInstance();
-        end.set(2020,m.getIndex()+1,m.getDay());
+        end.set(m.getYear(),m.getIndex()-1,m.getDay());
         temp  = UserDao.getMyAssenze(id);
         if(temp != null) {
             for (Assenze a : temp) {

@@ -6,6 +6,7 @@
 <%@ page import="factory.month" %>
 <%@ page import="factory.MonthFactory" %>
 <%@ page import="model.Assenze" %>
+<%@ page import="java.util.GregorianCalendar" %>
 <jsp:include page="ProfessorRegisterServlet" />
 
 <%--
@@ -27,13 +28,12 @@
     <link rel="stylesheet" href="css/register.css" type="text/css">
     <link rel="stylesheet" href="css/navbar.css" type="text/css">
     <link rel="stylesheet" href="css/toast.css" type="text/css">
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
 <div id="pop1">
-    Helllo
+    Hello
 </div>
 
 
@@ -45,13 +45,14 @@
             <input type="submit" value="Logout" >
         </form></a></li>
 </ul>
+<div class="container-fluid col-sm-12" style="padding:30px">
 
-HELLO WECOLME IN REGISTER
+<div align="center" class="col-sm-12"><h3>Welcome in the Register Page</h3></div><br><br>
 
 
 <%
     if(session.getAttribute("professor") == null){
-        response.sendRedirect("login.html");
+        response.sendRedirect("jsp.html");
     }
     Professor p  = (Professor) session.getAttribute("professor");
     if(request.getAttribute("register")!= null ){
@@ -67,13 +68,13 @@ HELLO WECOLME IN REGISTER
 <% }else {%>
 <form action="professorRegister.jsp" method="post">
 <input type="hidden" name="cmd" value="b">
-<input type="submit" value =">Go To 3B">
+<input type="submit" value ="Go To 3B">
 </form>
 <%}
 }else{ %>
 <form action="professorRegister.jsp" method="post">
     <input type="hidden" name="cmd" value="a">
-    <input type="submit" value =">Go To 4B">
+    <input type="submit" value ="Go To 4B">
 </form>
 <%}%>
 
@@ -123,7 +124,7 @@ HELLO WECOLME IN REGISTER
 
 
 
-<br><br>
+<br>
 mettere delle frecce al posto  dei  bottoni e dargli una posizione
 <% if(request.getAttribute("month") != null){
     MonthFactory mf = new MonthFactory();
@@ -131,14 +132,14 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
     month pr;
     month sx;
     if(m.getIndex() == 1) {
-         pr = mf.createMonth(12);
+         pr = mf.createMonth(12,m.getYear()-1);
     } else {
-         pr = mf.createMonth(m.getIndex()-1);
+         pr = mf.createMonth(m.getIndex()-1,m.getYear());
     }
     if(m.getIndex() == 12){
-         sx = mf.createMonth(1);
+         sx = mf.createMonth(1,m.getYear()+1);
     } else {
-         sx = mf.createMonth(m.getIndex()+1);
+         sx = mf.createMonth(m.getIndex()+1,m.getYear());
     }
     String materia;
     if(request.getAttribute("materia")!= null)
@@ -150,6 +151,7 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
 <form action="professorRegister.jsp" method="post">
     <input type="hidden" name="cmd" value="m">
     <input type="hidden" name="monthIndex" value="<%=pr.getIndex()%>">
+    <input type="hidden" name="monthYear" value="<%=pr.getYear()%>">
     <input type="submit" value ="<%=pr.getName()%>">
 </form>
 
@@ -158,18 +160,17 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
 <form action="professorRegister.jsp" method="post">
     <input type="hidden" name="cmd" value="m">
     <input type="hidden" name="monthIndex" value="<%=sx.getIndex()%>">
+    <input type="hidden" name="monthYear" value="<%=sx.getYear()%>">
     <input type="submit" value ="<%=sx.getName()%>">
 </form>
 
-
-
-    <div class="tg-wrap"><table id="tg-yquL3" class="tg">
+        <table style="margin:0px; width:100%" class="tableRegister">
     <tr>
-    <th class="tg-c3ow" colspan="6">
+    <th colspan="6">
         <%=materia%>
     </th>
-        <th class="tg-c3ow" colspan="6">
-            <%=m.getName()%>
+        <th colspan="6">
+            <%=m.getName()%> <%= m.getYear()%>
         </th>
     </tr>
         <tr>
@@ -229,8 +230,6 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
 }
 
 %>
-
-    </div>
 <%
 
 
@@ -293,5 +292,10 @@ mettere delle frecce al posto  dei  bottoni e dargli una posizione
 
 
 </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
+</div>
 </body>
 </html>

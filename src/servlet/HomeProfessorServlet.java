@@ -2,6 +2,7 @@ package servlet;
 
 import model.Homework;
 import model.Professor;
+import model.ScheduleInfo;
 import model.User;
 import persistence.ProfessorDao;
 
@@ -47,8 +48,9 @@ public class HomeProfessorServlet extends HttpServlet {
                     rd.forward(request, response);
                     return;
                 }
-    try {
-        Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(data);
+            try {
+                data = data.replace('-','/');
+               Date date1 = new SimpleDateFormat("yyyy/MM/dd").parse(data);
 
                 int result = ProfessorDao.newHomework(p.getMatricola(), classe, materia, date1, description);
 
@@ -96,6 +98,7 @@ public class HomeProfessorServlet extends HttpServlet {
                 p.setHomework(homeworks);
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/homeProfessor.jsp");
                 rd.forward(request, response);
+
             }
 
         } catch (Exception e){

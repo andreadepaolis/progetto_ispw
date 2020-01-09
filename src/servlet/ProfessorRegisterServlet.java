@@ -57,9 +57,10 @@ public class ProfessorRegisterServlet extends HttpServlet {
         if(cmd.equals("m")){
                     //temp contiene +1 o -1
             int value = Integer.parseInt(request.getParameter("monthIndex"));
-            System.out.println(value);
+            int year = Integer.parseInt(request.getParameter("monthYear"));
                  MonthFactory mf = new MonthFactory();
-                month m = mf.createMonth(value);
+
+                month m = mf.createMonth(value,year);
                 System.out.println(m.getName());
                 request.setAttribute("month",m);
         }
@@ -103,11 +104,11 @@ public class ProfessorRegisterServlet extends HttpServlet {
                     Calendar cal = GregorianCalendar.getInstance();
                     cal.setTime(d);
                     MonthFactory f = new MonthFactory();
-                     m = f.createMonth(cal.get(Calendar.MONTH)+1);
+                     m = f.createMonth(cal.get(Calendar.MONTH)+1,cal.get(Calendar.YEAR));
                     request.setAttribute("month",m);
                 } else {
                      m = (month)request.getAttribute("month");
-                    System.out.println(m.getName());
+                     System.out.println(m.getName());
 
                 }
                 String materia;

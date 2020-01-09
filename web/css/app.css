@@ -5,3 +5,21 @@ html{
 body{
     margin:0px;
 }
+
+.buttonSave{
+    border-radius: 5px;
+    color:white;
+    border: 0px;
+    background-color: #42a1f5;
+}
+
+.buttonSave:hover{
+    border-radius: 5px;
+    border: 0px;
+    color:white;
+    -webkit-box-shadow: 0px 1px 5px -1px #666666;
+    -moz-box-shadow: 0px 1px 5px -1px #666666;
+    -o-box-shadow: 0px 1px 5px -1px #666666;
+    box-shadow: 0px 1px 5px -1px #666666;
+    background-color: #42a1f5;
+}
